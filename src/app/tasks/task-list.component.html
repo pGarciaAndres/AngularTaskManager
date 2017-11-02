@@ -1,0 +1,8 @@
+<div class="container">
+    <h1>
+        {{title}}
+    </h1>
+    <div *ngFor="let task of tasks" [routerLink]="['/task', task.id]">
+        {{task.description}}
+    </div>
+</div>

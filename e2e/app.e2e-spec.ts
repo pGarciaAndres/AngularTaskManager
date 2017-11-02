@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('karma-test App', () => {
+describe('angular-task-manager App', () => {
   let page: AppPage;
 
   beforeEach(() => {
