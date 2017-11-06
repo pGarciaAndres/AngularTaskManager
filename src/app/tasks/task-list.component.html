@@ -4,5 +4,6 @@
     </h1>
     <div *ngFor="let task of tasks" [routerLink]="['/task', task.id]">
         {{task.description}}
+        <!-- <app-task-summary [task]=task></app-task-summary> -->
     </div>
 </div>
