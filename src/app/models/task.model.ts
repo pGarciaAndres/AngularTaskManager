@@ -1,22 +1,21 @@
-import { IType } from './type.model';
 import { IStatus } from './status.model';
 
 export class Task {
     id: string;
-    type: IType;
-    technology : string; //ITechnology
+    type: string;
+    technology : string;
     description: string;
-    priority: string; //IPriority
+    priority: number;
     status: IStatus;
     creationDate: Date;
     createdBy: string;
 
     constructor(
         id?: string,
-        type?: IType,
+        type?: string,
         technology?: string,
         description?: string,
-        priority?: string,
+        priority?: number,
         status?: IStatus,
         creationDate?: string,
         createdBy?: string

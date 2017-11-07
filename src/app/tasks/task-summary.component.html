@@ -1,11 +1,11 @@
 <div class="well task-row" (click)="selectTask(taskId)">
     <div class="row">
         <input type="text" #taskId [value]=task.id [hidden]=true/>
-        <!-- <div class="col-md-1">
-            <span>{{icon}}</span>
-        </div> -->
-        <div class="col-md-2">
-            <span>{{task.type.name}}</span>
+        <div class="col-md-1">
+            <span [class]="task.type | typePipe"></span>
+        </div>
+        <div class="col-md-1">
+            <span>{{task.type}}</span>
         </div>
         <div class="col-md-1">
             <span>{{task.technology}}</span>
@@ -13,16 +13,14 @@
         <div class="col-md-4">
             <span>{{task.description}}</span>
         </div>
-        <div class="col-md-1">
-            <span>{{task.priority}}</span>
+        <div class="col-md-1 text-center">
+            <!-- <span [class]="task.priority | priorityPipe" [matTooltip]="task.priority | priorityNamePipe" [matTooltipPosition]="tooltipPosition"></span> -->
+            <span [class]="task.priority | priorityPipe"></span>
         </div>
-        <!-- <div class="col-md-1">
-            <span>{{icon}}</span>
-        </div> -->
-        <div class="col-md-2">
+        <div class="col-md-2 text-center">
             <span>{{task.creationDate | date:'mediumDate'}}</span>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2 text-center">
             <span>{{task.status.name}}</span>
         </div>
     </div>

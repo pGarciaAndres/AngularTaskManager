@@ -9,6 +9,12 @@ import { TaskService } from '../services/tasks.service';
 export class TaskListComponent implements OnInit {
     title = 'List of tasks';
     tasks: Task[];
+    sortBy: string = 'creationDate';
+
+    private callbacks = {
+        ['creationDate']: (current: Task, after: Task) => current.creationDate.getDate() - after.creationDate.getDate(),
+        ['priority']: (current: Task, after: Task) => current.priority - after.priority
+    };
 
     constructor(private taskService: TaskService) {
     }
@@ -17,7 +23,16 @@ export class TaskListComponent implements OnInit {
         this.tasks = this.taskService.getTaskList();
     }
 
+    sortTasks(sortBy) {
+        this.tasks.sort(this.resolveSortCallback(sortBy));
+    }
+
+    private resolveSortCallback = (entry: string) => (
+        this.callbacks[entry]
+    );
+
     ngOnInit() {
         this.loadTasks();
+        this.sortTasks(this.sortBy);
     }
 }
