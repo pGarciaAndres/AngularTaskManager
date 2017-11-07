@@ -8,13 +8,15 @@ const TASKS: Task[] = [
             id: 1,
             name: "Issue"
         },
+        'Java',
         'Task description 000001',
-        '01 November 2017',
-        'QA Tester',
+        'Low',
         {
             id: 1,
             name: "Completed"
-        }
+        },
+        '01 November 2017',
+        'QA Tester'
     ),
     new Task(
         '000002',
@@ -22,13 +24,15 @@ const TASKS: Task[] = [
             id: 1,
             name: "Issue"
         },
+        'Java',
         'Task description 000002',
-        '02 November 2017',
-        'QA Tester',
+        'Medium',
         {
             id: 1,
             name: "InProgress"
-        }
+        },
+        '02 November 2017',
+        'QA Tester'
     ),
     new Task(
         '000003',
@@ -36,13 +40,15 @@ const TASKS: Task[] = [
             id: 1,
             name: "Issue"
         },
+        'SQL',
         'Task description 000003',
-        '03 November 2017',
-        'QA Tester',
+        'High',
         {
             id: 1,
             name: "New"
-        }
+        },
+        '03 November 2017',
+        'QA Tester'
     )
 ];
 //New, InProgress, ReadyToDeploy, InReview, Completed, OnHold, Duplicated, Cancelled

@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 //Components
 import { AppComponent } from './app.component';
+import { TaskListHeadComponent } from './tasks/task-list-head.component';
 import { TaskListComponent } from './tasks/task-list.component';
+import { TaskSummaryComponent } from './tasks/task-summary.component';
 //Services
 import { TaskService } from './services/tasks.service';
 //Routes
@@ -12,7 +14,9 @@ import { appRoutes } from './app.routes';
 @NgModule({
   declarations: [
     AppComponent,
-    TaskListComponent
+    TaskListHeadComponent,
+    TaskListComponent,
+    TaskSummaryComponent
   ],
   imports: [
     BrowserModule,

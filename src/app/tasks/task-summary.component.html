@@ -1,0 +1,29 @@
+<div class="well task-row" (click)="selectTask(taskId)">
+    <div class="row">
+        <input type="text" #taskId [value]=task.id [hidden]=true/>
+        <!-- <div class="col-md-1">
+            <span>{{icon}}</span>
+        </div> -->
+        <div class="col-md-2">
+            <span>{{task.type.name}}</span>
+        </div>
+        <div class="col-md-1">
+            <span>{{task.technology}}</span>
+        </div>
+        <div class="col-md-4">
+            <span>{{task.description}}</span>
+        </div>
+        <div class="col-md-1">
+            <span>{{task.priority}}</span>
+        </div>
+        <!-- <div class="col-md-1">
+            <span>{{icon}}</span>
+        </div> -->
+        <div class="col-md-2">
+            <span>{{task.creationDate | date:'mediumDate'}}</span>
+        </div>
+        <div class="col-md-2">
+            <span>{{task.status.name}}</span>
+        </div>
+    </div>
+</div>
