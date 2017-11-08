@@ -1,4 +1,4 @@
-<div class="well task-row" (click)="selectTask(taskId)">
+<div class="well task-row btn-default" tabindex="0" (click)="selectTask(taskId)" >
     <div class="row">
         <input type="text" #taskId [value]=task.id [hidden]=true/>
         <div class="col-md-1">
@@ -14,10 +14,10 @@
             <span>{{task.description}}</span>
         </div>
         <div class="col-md-1 text-center">
-            <!-- <div class="priorityTooltip" [matTooltip]="task.priority | priorityNamePipe" [matTooltipPosition]="tooltipPosition"> -->
-                <!-- <span [class]="task.priority | priorityPipe"></span> -->
+            <div class="priorityTooltip" [matTooltip]="task.priority | priorityNamePipe" [matTooltipPosition]="tooltipPosition">
                 <span [class]="task.priority | priorityPipe"></span>
-            <!-- </div> -->
+                <!-- <span [class]="task.priority | priorityPipe"></span> -->
+            </div>
         </div>
         <div class="col-md-2 text-center">
             <span>{{task.creationDate | date:'mediumDate'}}</span>

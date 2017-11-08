@@ -16,7 +16,8 @@
     </div>
 
     <app-task-list-head [tasks]=tasks></app-task-list-head>
-    <div *ngFor="let task of tasks" [routerLink]="['/task', task.id]">
+    <div *ngFor="let task of tasks" [routerLink]="[]">
+    <!-- <div *ngFor="let task of tasks"> -->
         <app-task-summary [task]=task></app-task-summary>
     </div>
 </div>

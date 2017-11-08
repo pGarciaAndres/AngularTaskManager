@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-// import { MatTooltipModule } from '@angular/material/tooltip';
 import { Task } from '../models/task.model';
 
 @Component({
@@ -15,6 +14,7 @@ export class TaskSummaryComponent {
     tooltipPosition = 'right';
 
     selectTask(taskElement: HTMLInputElement) {
-        this.taskChange.emit(taskElement.value);
+        // this.taskChange.emit(taskElement.value);
+        taskElement.checked = !taskElement.checked;
     }
 }

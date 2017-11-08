@@ -2,6 +2,15 @@
     padding: 10px;
     margin-bottom: 10px;
 }
-.priorityTooltip{
+.priorityTooltip {
     display: inline-flex;
+}
+.btn-default {
+    cursor: pointer;
+}
+.btn-default:focus, .btn-default:active {
+    color: #333 !important;
+    background-color: #e6e6e6 !important;
+    border-color: #8c8c8c !important;
+    outline: none !important;
 }

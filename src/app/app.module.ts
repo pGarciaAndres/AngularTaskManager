@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-// import { MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule} from '@angular/material/tooltip';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 //Components
 import { AppComponent } from './app.component';
@@ -28,7 +28,7 @@ import { appRoutes } from './app.routes';
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    // MatTooltipModule,
+    MatTooltipModule,
     BrowserAnimationsModule,
     NoopAnimationsModule
   ],
