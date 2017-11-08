@@ -14,8 +14,10 @@
             <span>{{task.description}}</span>
         </div>
         <div class="col-md-1 text-center">
-            <!-- <span [class]="task.priority | priorityPipe" [matTooltip]="task.priority | priorityNamePipe" [matTooltipPosition]="tooltipPosition"></span> -->
-            <span [class]="task.priority | priorityPipe"></span>
+            <!-- <div class="priorityTooltip" [matTooltip]="task.priority | priorityNamePipe" [matTooltipPosition]="tooltipPosition"> -->
+                <!-- <span [class]="task.priority | priorityPipe"></span> -->
+                <span [class]="task.priority | priorityPipe"></span>
+            <!-- </div> -->
         </div>
         <div class="col-md-2 text-center">
             <span>{{task.creationDate | date:'mediumDate'}}</span>

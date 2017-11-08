@@ -12,7 +12,7 @@ export class TaskListComponent implements OnInit {
     sortBy: string = 'creationDate';
 
     private callbacks = {
-        ['creationDate']: (current: Task, after: Task) => current.creationDate.getDate() - after.creationDate.getDate(),
+        ['creationDate']: (current: Task, after: Task) => after.creationDate.getTime() - current.creationDate.getTime(),
         ['priority']: (current: Task, after: Task) => current.priority - after.priority
     };
 

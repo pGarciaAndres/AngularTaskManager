@@ -22,8 +22,8 @@ const TASKS: Task[] = [
         'Java issue description 000002',
         2,
         {
-            id: 1,
-            name: "In progress"
+            id: 4,
+            name: "Completed"
         },
         '27 October 2017',
         'QA Tester'
@@ -35,10 +35,10 @@ const TASKS: Task[] = [
         'Sql issue description 000003',
         0,
         {
-            id: 0,
-            name: "New"
+            id: 1,
+            name: "In progress"
         },
-        '03 November 2017',
+        '01 November 2017',
         'QA Tester'
     ),
     new Task(
@@ -46,12 +46,12 @@ const TASKS: Task[] = [
         "Issue",
         'Angular',
         'Angular issue description 000004',
-        1,
+        3,
         {
-            id: 1,
-            name: "In progress"
+            id: 0,
+            name: "New"
         },
-        '31 October 2017',
+        '04 November 2017',
         'QA Tester'
     ),
     new Task(
@@ -59,7 +59,7 @@ const TASKS: Task[] = [
         "Issue",
         'Angular',
         'Angular issue description 000004',
-        1,
+        3,
         {
             id: 6,
             name: "Duplicated"
@@ -74,8 +74,8 @@ const TASKS: Task[] = [
         'C# develpment description 000006',
         1,
         {
-            id: 0,
-            name: "New"
+            id: 5,
+            name: "On hold"
         },
         '31 October 2017',
         'Requirements Manager'
@@ -90,7 +90,7 @@ const TASKS: Task[] = [
             id: 2,
             name: "Ready to deploy"
         },
-        '31 October 2017',
+        '02 November 2017',
         'Requirements Manager'
     )
 ];
