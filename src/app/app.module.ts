@@ -10,6 +10,7 @@ import { TaskListComponent } from './tasks/task-list.component';
 import { TaskSummaryComponent } from './tasks/task-summary.component';
 import { PriorityPipe, PriorityNamePipe } from './pipes/priority.pipe';
 import { TypePipe } from './pipes/type.pipe';
+import { CreateTaskComponent } from './tasks/create-task.component';
 //Services
 import { TaskService } from './services/tasks.service';
 //Routes
@@ -23,7 +24,8 @@ import { appRoutes } from './app.routes';
     TaskSummaryComponent,
     PriorityPipe,
     PriorityNamePipe,
-    TypePipe
+    TypePipe,
+    CreateTaskComponent
   ],
   imports: [
     BrowserModule,

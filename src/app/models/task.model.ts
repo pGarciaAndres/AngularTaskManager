@@ -8,7 +8,6 @@ export class Task {
     priority: number;
     status: IStatus;
     creationDate: Date;
-    createdBy: string;
 
     constructor(
         id?: string,
@@ -17,8 +16,7 @@ export class Task {
         description?: string,
         priority?: number,
         status?: IStatus,
-        creationDate?: string,
-        createdBy?: string
+        creationDate?: string
     ) {
         this.id = id;
         this.type = type;
@@ -27,7 +25,6 @@ export class Task {
         this.priority = priority;
         this.status = status;
         this.creationDate = new Date(creationDate);
-        this.createdBy = createdBy;
     }
 
 }

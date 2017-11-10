@@ -12,8 +12,7 @@ const TASKS: Task[] = [
             id: 4,
             name: "Completed"
         },
-        '30 October 2017',
-        'QA Tester'
+        '30 October 2017'
     ),
     new Task(
         '000002',
@@ -25,8 +24,7 @@ const TASKS: Task[] = [
             id: 4,
             name: "Completed"
         },
-        '27 October 2017',
-        'QA Tester'
+        '27 October 2017'
     ),
     new Task(
         '000003',
@@ -38,8 +36,7 @@ const TASKS: Task[] = [
             id: 1,
             name: "In progress"
         },
-        '01 November 2017',
-        'QA Tester'
+        '01 November 2017'
     ),
     new Task(
         '000004',
@@ -51,8 +48,7 @@ const TASKS: Task[] = [
             id: 0,
             name: "New"
         },
-        '04 November 2017',
-        'QA Tester'
+        '04 November 2017'
     ),
     new Task(
         '000005',
@@ -64,8 +60,7 @@ const TASKS: Task[] = [
             id: 6,
             name: "Duplicated"
         },
-        '01 November 2017',
-        'QA Tester'
+        '01 November 2017'
     ),
     new Task(
         '000006',
@@ -77,8 +72,7 @@ const TASKS: Task[] = [
             id: 5,
             name: "On hold"
         },
-        '31 October 2017',
-        'Requirements Manager'
+        '31 October 2017'
     ),
     new Task(
         '000007',
@@ -90,8 +84,7 @@ const TASKS: Task[] = [
             id: 2,
             name: "Ready to deploy"
         },
-        '02 November 2017',
-        'Requirements Manager'
+        '02 November 2017'
     )
 ];
 //New(0), InProgress(1), ReadyToDeploy(2), InReview(3), Completed(4), OnHold(5), Duplicated(6), Cancelled(7)

@@ -7,7 +7,7 @@ import { TaskService } from '../services/tasks.service';
     templateUrl: './task-list.component.html'
 })
 export class TaskListComponent implements OnInit {
-    title = 'List of tasks';
+    title = 'List Of Tasks';
     tasks: Task[];
     tasksSort: string = 'creationDate';
     hideCompleted: boolean = false;
