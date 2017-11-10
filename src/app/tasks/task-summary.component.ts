@@ -14,7 +14,6 @@ export class TaskSummaryComponent {
     tooltipPosition = 'right';
 
     selectTask(taskElement: HTMLInputElement) {
-        // this.taskChange.emit(taskElement.value);
         taskElement.checked = !taskElement.checked;
     }
 }

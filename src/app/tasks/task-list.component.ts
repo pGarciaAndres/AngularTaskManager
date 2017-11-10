@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Task } from '../models/task.model';
 import { TaskService } from '../services/tasks.service';
 
@@ -9,7 +9,10 @@ import { TaskService } from '../services/tasks.service';
 export class TaskListComponent implements OnInit {
     title = 'List of tasks';
     tasks: Task[];
-    sortBy: string = 'creationDate';
+    tasksSort: string = 'creationDate';
+    hideCompleted: boolean = false;
+    filteredTask: Task[];
+    @ViewChild('hide') hideButton:ElementRef;
 
     private callbacks = {
         ['creationDate']: (current: Task, after: Task) => after.creationDate.getTime() - current.creationDate.getTime(),
@@ -19,20 +22,34 @@ export class TaskListComponent implements OnInit {
     constructor(private taskService: TaskService) {
     }
 
+    // Load tasks
     private loadTasks() {
         this.tasks = this.taskService.getTaskList();
+        this.filteredTask = this.tasks;
     }
 
-    sortTasks(sortBy) {
-        this.tasks.sort(this.resolveSortCallback(sortBy));
+    // Sort tasks
+    sortTasks(sort) {
+        this.tasksSort = sort;
+        this.filteredTask.sort(this.resolveSortCallback(sort));
     }
 
     private resolveSortCallback = (entry: string) => (
         this.callbacks[entry]
     );
 
+    // Filter tasks
+    filterTasks() {
+        this.hideCompleted=!this.hideCompleted;
+        this.filteredTask = this.tasks.filter(
+            (task) => !this.hideCompleted || task.status.name != 'Completed'
+        );
+        this.sortTasks(this.tasksSort);
+        this.hideButton.nativeElement.blur();
+    }
+
     ngOnInit() {
         this.loadTasks();
-        this.sortTasks(this.sortBy);
+        this.sortTasks(this.tasksSort);
     }
 }
