@@ -55,8 +55,8 @@ export class TaskListComponent implements OnInit {
         
         if (this.route.snapshot.params['sort']) {
             this.tasksSort = this.route.snapshot.params['sort'];
+            this.sortTasks(this.tasksSort);
         }
-        this.sortTasks(this.tasksSort);
 
         if (this.route.snapshot.params['filtered'] === 'true') {
             this.hideCompleted = !this.route.snapshot.params['filtered'];
