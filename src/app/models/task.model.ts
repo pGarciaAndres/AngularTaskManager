@@ -1,12 +1,10 @@
-import { IStatus } from './status.model';
-
 export class Task {
     id: string;
     type: string;
     technology : string;
     description: string;
     priority: number;
-    status: IStatus;
+    status: string;
     creationDate: Date;
 
     constructor(
@@ -15,7 +13,7 @@ export class Task {
         technology?: string,
         description?: string,
         priority?: number,
-        status?: IStatus,
+        status?: string,
         creationDate?: string
     ) {
         this.id = id;

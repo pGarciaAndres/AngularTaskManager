@@ -1,3 +1,59 @@
-<div>
-    <h3>{{title}}</h3>
+<div class="container">
+    <div class="col-md-12">
+        <h3>{{title}}</h3>
+    </div>
+    <div class="col-md-6">
+        <form [formGroup]="createTaskForm" (ngSubmit)="createTask(createTaskForm.value)">
+            <div class="form-group">
+                <label for="type">Type</label>
+                <em *ngIf="type.invalid && type.touched" [ngClass]="{ 'error': type.invalid && type.touched }" class="pull-right">Required</em>
+                <select formControlName="type" class="form-control" >
+                    <option value="">Select a type...</option>
+                    <option value="Issue">Issue</option>
+                    <option value="Development">Development</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="technology">Category</label>
+                <em *ngIf="technology.invalid && technology.touched" [ngClass]="{ 'error': technology.invalid && technology.touched }" class="pull-right">Required</em>
+                <select formControlName="technology" class="form-control" >
+                    <option value="">Select a category...</option>
+                    <option value="Java">Java</option>
+                    <option value="Angular">Angular</option>
+                    <option value="C#">C#</option>
+                    <option value="SQL">SQL</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <em *ngIf="description.invalid && description.touched" [ngClass]="{ 'error': description.invalid && description.touched }" class="pull-right">Required</em>
+                <input type="text" formControlName="description" (ngModel)="description" class="form-control" placeholder="Insert a description..." />
+            </div>
+            <div class="form-group">
+                <label for="priority">Priority</label>
+                <em *ngIf="priority.invalid && priority.touched" [ngClass]="{ 'error': priority.invalid && priority.touched }" class="pull-right">Required</em>
+                <select formControlName="priority" class="form-control" >
+                    <option value="">Select a priority...</option>
+                    <option value="3">Minor</option>
+                    <option value="2">Normal</option>
+                    <option value="1">Major</option>
+                    <option value="0">Critical</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="creationDate">Creation date</label>
+                <em *ngIf="creationDate.invalid && creationDate.touched" [ngClass]="{ 'error': creationDate.invalid && creationDate.touched }" class="pull-right">Required</em>
+                <input type="date" formControlName="creationDate" class="form-control" min="1980-01-01" [max]="today" />
+            </div>
+            <div class="form-group">
+                <label for="status">Status</label>
+                <input type="text" formControlName="status" class="form-control" [(ngModel)]="defaultStatus" [readonly]="true" />
+            </div>
+            <div class="col-md-5"></div>
+            <div class="col-md-7">
+                <button type="submit" [disabled]="createTaskForm.invalid" class="btn btn-primary">Create</button>
+                <button class="btn btn-default" (click)="cancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
 </div>

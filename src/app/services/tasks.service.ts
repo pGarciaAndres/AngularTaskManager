@@ -8,10 +8,7 @@ const TASKS: Task[] = [
         'Java',
         'Java issue description 000001',
         3,
-        {
-            id: 4,
-            name: "Completed"
-        },
+        "Completed",
         '30 October 2017'
     ),
     new Task(
@@ -20,10 +17,7 @@ const TASKS: Task[] = [
         'Java',
         'Java issue description 000002',
         2,
-        {
-            id: 4,
-            name: "Completed"
-        },
+        "Completed",
         '27 October 2017'
     ),
     new Task(
@@ -32,10 +26,7 @@ const TASKS: Task[] = [
         'SQL',
         'Sql issue description 000003',
         0,
-        {
-            id: 1,
-            name: "In progress"
-        },
+        "In progress",
         '01 November 2017'
     ),
     new Task(
@@ -44,10 +35,7 @@ const TASKS: Task[] = [
         'Angular',
         'Angular issue description 000004',
         3,
-        {
-            id: 0,
-            name: "New"
-        },
+        "New",
         '04 November 2017'
     ),
     new Task(
@@ -56,11 +44,8 @@ const TASKS: Task[] = [
         'Angular',
         'Angular issue description 000004',
         3,
-        {
-            id: 6,
-            name: "Duplicated"
-        },
-        '01 November 2017'
+        "Duplicated",
+        '31 October 2017'
     ),
     new Task(
         '000006',
@@ -68,10 +53,7 @@ const TASKS: Task[] = [
         'C#',
         'C# develpment description 000006',
         1,
-        {
-            id: 5,
-            name: "On hold"
-        },
+        "On hold",
         '31 October 2017'
     ),
     new Task(
@@ -80,10 +62,7 @@ const TASKS: Task[] = [
         'Java',
         'Java development description 000007',
         1,
-        {
-            id: 2,
-            name: "Ready to deploy"
-        },
+        "Ready to deploy",
         '02 November 2017'
     )
 ];

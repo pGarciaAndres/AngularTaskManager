@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Task } from '../models/task.model';
 import { TaskService } from '../services/tasks.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-task-list',
@@ -19,13 +20,14 @@ export class TaskListComponent implements OnInit {
         ['priority']: (current: Task, after: Task) => current.priority - after.priority
     };
 
-    constructor(private taskService: TaskService) {
+    constructor(private taskService: TaskService, private route: ActivatedRoute) {
     }
 
     // Load tasks
     private loadTasks() {
         this.tasks = this.taskService.getTaskList();
         this.filteredTask = this.tasks;
+        this.sortTasks(this.tasksSort);
     }
 
     // Sort tasks
@@ -40,9 +42,9 @@ export class TaskListComponent implements OnInit {
 
     // Filter tasks
     filterTasks() {
-        this.hideCompleted=!this.hideCompleted;
+        this.hideCompleted = !this.hideCompleted;
         this.filteredTask = this.tasks.filter(
-            (task) => !this.hideCompleted || task.status.name != 'Completed'
+            (task) => !this.hideCompleted || task.status != 'Completed'
         );
         this.sortTasks(this.tasksSort);
         this.hideButton.nativeElement.blur();
@@ -50,6 +52,15 @@ export class TaskListComponent implements OnInit {
 
     ngOnInit() {
         this.loadTasks();
+        
+        if (this.route.snapshot.params['sort']) {
+            this.tasksSort = this.route.snapshot.params['sort'];
+        }
         this.sortTasks(this.tasksSort);
+
+        if (this.route.snapshot.params['filtered'] === 'true') {
+            this.hideCompleted = !this.route.snapshot.params['filtered'];
+            this.filterTasks();
+        }
     }
 }
