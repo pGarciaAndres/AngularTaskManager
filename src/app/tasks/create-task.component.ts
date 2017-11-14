@@ -4,6 +4,14 @@ import { Task } from '../models/task.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
+const tooShort20 = (control: FormControl): { [key:string]: any } => {
+    // const descriptionSize = control.value.lenght;
+    // return descriptionSize < 20 ? { 'tooShort20' : 'invalid description' } : null;
+    const firstLetter = control.value.toString().length;
+    return (!!firstLetter && (firstLetter < 20)) ?
+      { 'tooShort20' : 'invalid description' } : null;
+}
+
 @Component({
     selector: 'app-create-task',
     templateUrl: './create-task.component.html',
@@ -53,7 +61,7 @@ export class CreateTaskComponent implements OnInit {
     ngOnInit() {
         this.type = new FormControl('', Validators.required);
         this.technology = new FormControl('', Validators.required);
-        this.description = new FormControl('', Validators.required);
+        this.description = new FormControl('', [Validators.required, tooShort20]);
         this.priority = new FormControl('', Validators.required);
         this.status = new FormControl('', Validators.required);
         this.creationDate = new FormControl('', Validators.required);

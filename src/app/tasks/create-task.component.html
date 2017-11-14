@@ -31,7 +31,10 @@
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <em *ngIf="description.invalid && description.touched" [ngClass]="{ 'error': description.invalid && description.touched }" class="pull-right">Required</em>
+                    <em *ngIf="description.invalid && description.touched && description?.errors.required" class="pull-right">Required</em>
+                    <em *ngIf="description.invalid && description.touched && description?.errors.tooShort20" class="pull-right">
+                        Description too short, it must contain at least 20 characters
+                    </em>
                     <input type="text" formControlName="description" (ngModel)="description" class="form-control" placeholder="Insert a description..." />
                 </div>
                 <div class="form-group">
