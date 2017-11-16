@@ -1,5 +1,5 @@
 export class Task {
-    id: string;
+    id: number;
     type: string;
     technology : string;
     description: string;
@@ -8,7 +8,7 @@ export class Task {
     creationDate: Date;
 
     constructor(
-        id?: string,
+        id?: number,
         type?: string,
         technology?: string,
         description?: string,

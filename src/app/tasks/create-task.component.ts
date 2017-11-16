@@ -5,10 +5,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 const tooShort20 = (control: FormControl): { [key:string]: any } => {
-    // const descriptionSize = control.value.lenght;
-    // return descriptionSize < 20 ? { 'tooShort20' : 'invalid description' } : null;
-    const firstLetter = control.value.toString().length;
-    return (!!firstLetter && (firstLetter < 20)) ?
+    const descriptionSize = control.value.toString().length;
+    return (!!descriptionSize && (descriptionSize < 20)) ?
       { 'tooShort20' : 'invalid description' } : null;
 }
 

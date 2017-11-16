@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <app-task-list-head [tasks]=tasks></app-task-list-head>
+    <app-task-list-head [tasks]=filteredTask></app-task-list-head>
     <div class="row">
         <div *ngFor="let task of filteredTask" [routerLink]="[]" >
             <app-task-summary [task]=task></app-task-summary>

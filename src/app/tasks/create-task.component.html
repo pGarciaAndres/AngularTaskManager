@@ -12,11 +12,10 @@
                 <div class="form-group">
                     <label for="type">Type</label>
                     <em *ngIf="type.invalid && type.touched" [ngClass]="{ 'error': type.invalid && type.touched }" class="pull-right">Required</em>
-                    <select formControlName="type" class="form-control" >
-                        <option value="">Select a type...</option>
-                        <option value="Issue">Issue</option>
-                        <option value="Development">Development</option>
-                    </select>
+                    <div class="row col-md-12 form-group">
+                        <input type="radio" formControlName="type" value="Development"> New Development
+                        <input type="radio" formControlName="type" value="Issue" style="margin-left: 20px;"> Issue
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="technology">Category</label>
@@ -25,7 +24,8 @@
                         <option value="">Select a category...</option>
                         <option value="Java">Java</option>
                         <option value="Angular">Angular</option>
-                        <option value="C#">C#</option>
+                        <option value="Android">Android</option>
+                        <option value="Python">Python</option>
                         <option value="SQL">SQL</option>
                     </select>
                 </div>

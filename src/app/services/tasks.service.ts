@@ -3,7 +3,7 @@ import { Task } from '../models/task.model';
 
 const TASKS: Task[] = [
     new Task(
-        '000001',
+        1,
         "Issue",
         'Java',
         'Java issue description 000001',
@@ -12,7 +12,7 @@ const TASKS: Task[] = [
         '30 October 2017'
     ),
     new Task(
-        '000002',
+        2,
         "Issue",
         'Java',
         'Java issue description 000002',
@@ -21,7 +21,7 @@ const TASKS: Task[] = [
         '27 October 2017'
     ),
     new Task(
-        '000003',
+        3,
         "Issue",
         'SQL',
         'Sql issue description 000003',
@@ -30,7 +30,7 @@ const TASKS: Task[] = [
         '01 November 2017'
     ),
     new Task(
-        '000004',
+        4,
         "Issue",
         'Angular',
         'Angular issue description 000004',
@@ -39,7 +39,7 @@ const TASKS: Task[] = [
         '04 November 2017'
     ),
     new Task(
-        '000005',
+        5,
         "Issue",
         'Angular',
         'Angular issue description 000004',
@@ -48,16 +48,16 @@ const TASKS: Task[] = [
         '31 October 2017'
     ),
     new Task(
-        '000006',
+        6,
         "Development",
-        'C#',
-        'C# develpment description 000006',
+        'Python',
+        'Python develpment description 000006',
         1,
         "On hold",
         '31 October 2017'
     ),
     new Task(
-        '000007',
+        7,
         "Development",
         'Java',
         'Java development description 000007',
@@ -73,11 +73,13 @@ export class TaskService {
         return TASKS;
     }
 
-    getTaskById(id: string): Task {
+    getTaskById(id: number): Task {
         return TASKS.find((task) => task.id === id);
     }
 
     addTask(task: Task): void {
+        var taskIdList = TASKS.map(task => task.id);
+        task.id = Math.max(...taskIdList) + 1;
         TASKS.push(task);
     }
 }
