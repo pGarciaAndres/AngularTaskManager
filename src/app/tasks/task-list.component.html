@@ -14,7 +14,7 @@
             <button class="btn btn-default" [class.active]="hideCompleted" (click)="filterTasks()" #hide>Hide completed tasks</button>
         </div>
         <div class="col-md-2 text-right form-group" style="display: grid;">
-            <button class="btn btn-primary" [class.disabled]="showCreateTask" [routerLink]="['/tasks/new', tasksSort, hideCompleted]">Add new task</button>
+            <button class="btn btn-primary" [class.disabled]="showCreateTask" [routerLink]="['/tasks/new']" [queryParams]="{ sort: tasksSort, filter: hideCompleted }">Add new task</button>
         </div>
     </div>
 

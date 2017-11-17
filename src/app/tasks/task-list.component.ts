@@ -15,6 +15,11 @@ export class TaskListComponent implements OnInit {
     filteredTask: Task[];
     @ViewChild('hide') hideButton:ElementRef;
 
+    private params = {
+        sort: '',
+        filter: ''
+    };
+
     private callbacks = {
         ['creationDate']: (current: Task, after: Task) => after.creationDate.getTime() - current.creationDate.getTime(),
         ['priority']: (current: Task, after: Task) => current.priority - after.priority
@@ -52,14 +57,20 @@ export class TaskListComponent implements OnInit {
 
     ngOnInit() {
         this.loadTasks();
+
+        this.route.queryParams
+        .subscribe(params => {
+            this.params.sort = params.sort;
+            this.params.filter = params.filter;
+        });
         
-        if (this.route.snapshot.params['sort']) {
-            this.tasksSort = this.route.snapshot.params['sort'];
+        if (this.params.sort) {
+            this.tasksSort = this.params.sort;
             this.sortTasks(this.tasksSort);
         }
 
-        if (this.route.snapshot.params['filtered'] === 'true') {
-            this.hideCompleted = !this.route.snapshot.params['filtered'];
+        if (this.params.filter === 'true') {
+            this.hideCompleted = !this.params.filter;
             this.filterTasks();
         }
     }

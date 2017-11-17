@@ -4,6 +4,7 @@ import { Task } from '../models/task.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
+// Description size validation
 const tooShort20 = (control: FormControl): { [key:string]: any } => {
     const descriptionSize = control.value.toString().length;
     return (!!descriptionSize && (descriptionSize < 20)) ?
@@ -23,7 +24,9 @@ const tooShort20 = (control: FormControl): { [key:string]: any } => {
 })
 export class CreateTaskComponent implements OnInit {
     title: string = 'Create New Task';
-    //Form fields
+    sort: string = '';
+    filter: string = '';
+    // Form fields
     createTaskForm: FormGroup;
     type: FormControl;
     technology: FormControl;
@@ -36,10 +39,11 @@ export class CreateTaskComponent implements OnInit {
 
     constructor(private taskService: TaskService, private router: Router, private route: ActivatedRoute) {}
 
+    // Create a new Task
     createTask(formValues: any) {
         const task = this.mapper(formValues);
         this.taskService.addTask(task);
-        this.router.navigate(['/tasks', this.route.snapshot.params['sort'], this.route.snapshot.params['filtered']]);
+        this.router.navigate(['tasks'], { queryParams: { sort: this.sort, filter: this.filter } });
     }
 
     private mapper(formValues: any): Task {
@@ -53,10 +57,18 @@ export class CreateTaskComponent implements OnInit {
     }
 
     cancel() {
-        this.router.navigate(['/tasks', this.route.snapshot.params['sort'], this.route.snapshot.params['filtered']]);
+        this.router.navigate(['tasks'], { queryParams: { sort: this.sort, filter: this.filter } });
     }
 
     ngOnInit() {
+        // Init Form
+        this.initTaskForm();
+        // Init Parameters
+        this.getParameters();
+    }
+
+    // Init Form
+    private initTaskForm() {
         this.type = new FormControl('', Validators.required);
         this.technology = new FormControl('', Validators.required);
         this.description = new FormControl('', [Validators.required, tooShort20]);
@@ -72,6 +84,14 @@ export class CreateTaskComponent implements OnInit {
             status: this.status,
             creationDate: this.creationDate
         });
+    }
 
+    // Get parameters
+    private getParameters() {
+        this.route.queryParams
+        .subscribe(params => {
+            this.sort = params.sort;
+            this.filter = params.filter;
+        });
     }
 }
