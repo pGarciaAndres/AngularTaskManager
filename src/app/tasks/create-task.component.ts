@@ -56,6 +56,7 @@ export class CreateTaskComponent implements OnInit {
                         formValues.creationDate);
     }
 
+    // Cancel new Task creation
     cancel() {
         this.router.navigate(['tasks'], { queryParams: { sort: this.sort, filter: this.filter } });
     }

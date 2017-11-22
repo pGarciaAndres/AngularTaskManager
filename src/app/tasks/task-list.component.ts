@@ -5,7 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-task-list',
-    templateUrl: './task-list.component.html'
+    templateUrl: './task-list.component.html',
+    styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent implements OnInit {
     title = 'List Of Tasks';
@@ -57,7 +58,12 @@ export class TaskListComponent implements OnInit {
 
     ngOnInit() {
         this.loadTasks();
+        // Init Parameters
+        this.getParameters();
+    }
 
+    // Get parameters
+    private getParameters() {
         this.route.queryParams
         .subscribe(params => {
             this.params.sort = params.sort;
@@ -68,7 +74,6 @@ export class TaskListComponent implements OnInit {
             this.tasksSort = this.params.sort;
             this.sortTasks(this.tasksSort);
         }
-
         if (this.params.filter === 'true') {
             this.hideCompleted = !this.params.filter;
             this.filterTasks();

@@ -4,16 +4,16 @@
     </h1>
     <div class="row">
         <div class="col-md-5 text-right"></div>
-        <div class="col-md-3 text-right form-group" style="display: grid;">
+        <div class="col-md-3 text-right form-group grid">
             <select class="form-control" [(ngModel)]="tasksSort" #selected (change)="sortTasks(selected.value)">
                 <option value="creationDate">Sort by creation date</option>
                 <option value="priority">Sort by priority</option>
             </select>
         </div>
-        <div class="col-md-2 text-right form-group" style="display: grid;">
+        <div class="col-md-2 text-right form-group grid">
             <button class="btn btn-default" [class.active]="hideCompleted" (click)="filterTasks()" #hide>Hide completed tasks</button>
         </div>
-        <div class="col-md-2 text-right form-group" style="display: grid;">
+        <div class="col-md-2 text-right form-group grid">
             <button class="btn btn-primary" [class.disabled]="showCreateTask" [routerLink]="['/tasks/new']" [queryParams]="{ sort: tasksSort, filter: hideCompleted }">Add new task</button>
         </div>
     </div>

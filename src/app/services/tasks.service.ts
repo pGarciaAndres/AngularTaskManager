@@ -69,14 +69,18 @@ const TASKS: Task[] = [
 //New(0), InProgress(1), ReadyToDeploy(2), InReview(3), Completed(4), OnHold(5), Duplicated(6), Cancelled(7)
 @Injectable()
 export class TaskService {
+    
+    //Get all task
     getTaskList(): Task[] {
         return TASKS;
     }
 
+    //Get task by ID
     getTaskById(id: number): Task {
         return TASKS.find((task) => task.id === id);
     }
 
+    //Add a new task
     addTask(task: Task): void {
         var taskIdList = TASKS.map(task => task.id);
         task.id = Math.max(...taskIdList) + 1;

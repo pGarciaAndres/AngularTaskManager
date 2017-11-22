@@ -21,8 +21,8 @@
         <div class="col-md-2 text-center">
             <span>{{task.creationDate | date:'mediumDate'}}</span>
         </div>
-        <div class="col-md-2 text-center">
-            <span>{{task.status}}</span>
+        <div [ngClass]="{'col-md-2': true, 'text-center': true}">
+            <span *ngIf="task.status != ''">{{task.status}}</span>
         </div>
     </div>
 </div>
